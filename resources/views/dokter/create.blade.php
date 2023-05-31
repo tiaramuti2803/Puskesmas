@@ -2,9 +2,9 @@
 @section('content')
 <body>
     <div class="container">
-        <h1 class="text-center">Tambah Pasien</h1>
+        <h1 class="text-center">Tambah Dokter</h1>
         <br>
-        <a href="/pasien" class="btn btn-primary">
+        <a href="/dokter" class="btn btn-primary">
             < Back</a>
                 <hr>
 
@@ -19,34 +19,30 @@
                     </div>
                 @endif
 
-                <form action="/pasien" method="post" class="mx-2">
+                <form action="/dokter" method="post" class="mx-2">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Pasien" value="">
+                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Dokter" value="">
                     </div>
 
                     <div class="form-group mt-3">
-                        <label for="jk">Jenis Kelamin</label>
-                        <select class="form-control" name="jk">
-                            <option value="L">Laki-laki</option>
-                            <option value="P">Perempuan</option>
+                        <label for="spesialis">Spesialis</label>
+                        <select class="form-control" name="spesialis">
+                            <option value="perawatan mata">Perawatan Mata</option>
+                            <option value="ilmu bedah">Ilmu Bedah</option>
+                            <option value="gigi">Gigi</option>
                         </select>
                     </div>
 
                     <div class="form-group mt-3">
-                        <label for="tgl_lahir">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tgl_lahir" value="">
+                        <label for="telp">Telp</label>
+                        <input type="text" class="form-control" name="telp" placeholder="Masukkan No. Telp" value="">
                     </div>
 
                     <div class="form-group mt-3">
                         <label for="alamat">Alamat</label>
                         <textarea class="form-control" name="alamat"></textarea>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <label for="telp">No. Telp</label>
-                        <input type="text" class="form-control" name="telp" placeholder="Masukkan No. Telp" value="">
                     </div>
 
                     <div class="form-group mt-3 d-flex justify-content-center">
@@ -55,4 +51,4 @@
                 </form>
 
     </div>
-   @endsection
+  @endsection

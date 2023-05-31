@@ -1,9 +1,9 @@
 @extends('main')
 @section('content')
     <div class="container">
-        <h1>Daftar Pasien</h1>
+        <h1>Daftar Dokter</h1>
         <br>
-        <a href="/pasien/create" class="btn btn-primary">+ Tambah Pasien</a>
+        <a href="/dokter/create" class="btn btn-primary">+ Tambah Dokter</a>
         <hr>
 
         @if (session('success'))
@@ -17,23 +17,21 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Alamat</th>
+                    <th>Spesialis</th>
                     <th>No. Telp</th>
+                    <th>Alamat</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @php $iteration = 1 @endphp
-                @foreach ($pasiens as $item)
+                @foreach ($dokters as $item)
                 <tr>
-                    <td>{{$iteration++ }}</td>
-                    <td>{{$item ['nama'] }}</td>
-                    <td>{{$item ['jk'] }}</td>
-                    <td>{{$item ['tgl_lahir'] }}</td>
-                    <td>{{$item ['alamat'] }}</td>
-                    <td>{{$item ['telp'] }}</td>
+                    <td>{{ $iteration++ }}</td>
+                    <td>{{ $item['nama'] }}</td>
+                    <td>{{ $item['spesialis'] }}</td>
+                    <td>{{ $item['telp'] }}</td>
+                    <td>{{ $item['alamat'] }}</td>
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Edit</a>
                         <form action="#" method="POST" class="d-inline">
