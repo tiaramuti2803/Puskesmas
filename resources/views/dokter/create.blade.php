@@ -1,6 +1,5 @@
 @extends('main')
 @section('content')
-<body>
     <div class="container">
         <h1 class="text-center">Tambah Dokter</h1>
         <br>
@@ -19,8 +18,8 @@
                     </div>
                 @endif
 
-                <form action="/dokter" method="post" class="mx-2">
-                    @csrf
+                <form action="/dokter/" method="post" class="mx-2">
+                    @csrf 
                     <div class="form-group mt-3">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Dokter" value="">
@@ -36,13 +35,13 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label for="telp">Telp</label>
-                        <input type="text" class="form-control" name="telp" placeholder="Masukkan No. Telp" value="">
+                        <label for="alamat">Alamat</label>
+                        <textarea class="form-control" name="alamat"></textarea>
                     </div>
 
                     <div class="form-group mt-3">
-                        <label for="alamat">Alamat</label>
-                        <textarea class="form-control" name="alamat"></textarea>
+                        <label for="telephone">No. Telephone</label>
+                        <input type="text" class="form-control" name="telephone" placeholder="Masukkan No. Telephone" value="">
                     </div>
 
                     <div class="form-group mt-3 d-flex justify-content-center">
@@ -51,4 +50,4 @@
                 </form>
 
     </div>
-  @endsection
+@endsection

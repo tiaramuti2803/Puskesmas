@@ -20,7 +20,7 @@
                     <th>Jenis Kelamin</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat</th>
-                    <th>No. Telp</th>
+                    <th>No. Telp</th> 
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -28,17 +28,24 @@
                 @php $iteration = 1 @endphp
                 @foreach ($pasiens as $item)
                 <tr>
-                    <td>{{$iteration++ }}</td>
-                    <td>{{$item ['nama'] }}</td>
-                    <td>{{$item ['jk'] }}</td>
-                    <td>{{$item ['tgl_lahir'] }}</td>
-                    <td>{{$item ['alamat'] }}</td>
-                    <td>{{$item ['telp'] }}</td>
+                    <td>{{ $iteration++ }}</td>
+                    <td>{{ $item['nama'] }}</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="#" method="POST" class="d-inline">
+                        @if($item['jk'] == 'L')
+                            Laki-Laki
+                        @else
+                            Perempuan
+                        @endif 
+                    </td>
+                    <td>{{ $item['tgl_lahir'] }}</td>
+                    <td>{{ $item['alamat'] }}</td>
+                    <td>{{ $item['telp'] }}</td>
+                    <td>
+                        <a href="/pasien/edit/{{ $item->id }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="/pasien" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
+                            <input type="hidden" value="{{ $item->id }}" name="id">
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
                         </form>
                     </td>
@@ -46,4 +53,4 @@
             </tbody>
         </table>
     </div>
-    @endsection
+@endsection

@@ -36,5 +36,17 @@ Route::get('/dokter/create',[DokterController::class, 'create']);
 // route untuk memproses from tambah pasien
 Route::post('/dokter',[DokterController::class, 'store']);
 
-//  Route untuk menampilkan halaman dashboard
+// route untuk menghapus data dokter
+Route::delete('/dokter',[DokterController::class,'destroy']);
+
+// route untuk menghapus data pasien
+Route::delete('/pasien',[PasienController::class,'destroy']);
+
+//  route untuk menampilkan halaman dashboard
  Route::get('/',[dashboardcontroller::class,'index']);
+
+ // route untuk menampilkan form edit pasien
+ Route::get('/pasien/edit/{id}', [PasienController::class, 'edit']);
+
+ // route untuk memproses form edit pasien
+ Route::put('/pasien/{id}', [PasienController::class, 'update']);
