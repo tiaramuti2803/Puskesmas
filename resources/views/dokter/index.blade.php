@@ -3,7 +3,7 @@
     <div class="container">
         <h1>Daftar Dokter</h1>
         <br>
-        <a href="/dokter.create" class="btn btn-primary">+ Tambah Dokter</a>
+        <a href="/dokter/create" class="btn btn-primary">+ Tambah Dokter</a>
         <hr>
 
         @if (session('success'))
@@ -15,11 +15,11 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>No.</th>
                     <th>Nama</th>
                     <th>Spesialis</th>
                     <th>Alamat</th>
-                    <th>No. Telephone</th>
+                    <th>No. Telp</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -33,8 +33,8 @@
                     <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="#" method="POST" class="d-inline">
+                        <a href="/dokter/edit/{{ $item->id }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="/dokter" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
                             <input type="hidden" value="{{ $item['id'] }}" name="id">

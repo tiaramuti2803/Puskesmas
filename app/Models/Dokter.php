@@ -9,11 +9,11 @@ class Dokter extends Model
 {
     use HasFactory;
 
-// menghubungkan model dengan tabel pasiens
+// menghubungkan model dengan tabel dokter
 
 protected $table = 'dokters';
 
 //deklarasikan kolom yang boleh diisi
 
-protected $fillable = ['nama', 'spesialis', 'telp'];
+protected $fillable = ['nama', 'spesialis', 'alamat', 'telp'];
 }

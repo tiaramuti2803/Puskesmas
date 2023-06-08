@@ -33,7 +33,7 @@ Route::get('/dokter',[DokterController::class, 'index']);
 //route untuk menampilkan form tambah dokter
 Route::get('/dokter/create',[DokterController::class, 'create']);
 
-// route untuk memproses from tambah pasien
+// route untuk memproses from tambah dokter
 Route::post('/dokter',[DokterController::class, 'store']);
 
 // route untuk menghapus data dokter
@@ -50,3 +50,9 @@ Route::delete('/pasien',[PasienController::class,'destroy']);
 
  // route untuk memproses form edit pasien
  Route::put('/pasien/{id}', [PasienController::class, 'update']);
+
+  // route untuk menampilkan form edit dokter
+  Route::get('/dokter/edit/{id}', [DokterController::class, 'edit']);
+
+  // route untuk memproses form edit dokter
+  Route::put('/dokter/{id}', [DokterController::class, 'update']);

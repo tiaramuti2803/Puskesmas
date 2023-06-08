@@ -15,7 +15,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>No.</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Tanggal Lahir</th>
