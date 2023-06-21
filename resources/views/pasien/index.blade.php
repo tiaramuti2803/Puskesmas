@@ -3,7 +3,9 @@
     <div class="container">
         <h1>Daftar Pasien</h1>
         <br>
-        <a href="/pasien/create" class="btn btn-primary">+ Tambah Pasien</a>
+       @if(Auth::user()->role == 'admin')
+       <a href="/pasien/create" class="btn btn-primary">+ Tambah Pasien</a>
+       @endif
         <hr>
 
         @if (session('success'))
@@ -41,8 +43,9 @@
                     <td>{{ $item['tgl_lahir'] }}</td>
                     <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
-                    <td>{{ $item->dokter->nama}}</td>
+                    <td>{{ $item->dokter->nama ?? 'Empty' }}</td>
                     <td>
+                        @if(Auth::user()->role == 'admin')
                         <a href="/pasien/edit/{{ $item->id }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="/pasien" method="POST" class="d-inline">
                             @csrf
@@ -50,6 +53,9 @@
                             <input type="hidden" value="{{ $item->id }}" name="id">
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
                         </form>
+                        @else
+                            -
+                        @endif
                     </td>
                     @endforeach
             </tbody>
