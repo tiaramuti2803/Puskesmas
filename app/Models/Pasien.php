@@ -15,5 +15,13 @@ protected $table ='pasiens';
 
 // deklarasikan kolom yang boleh  diisi
 
-protected $fillable = ['nama', 'jk', 'alamat', 'tgl_lahir', 'telp'];
+protected $fillable = ['nama', 'jk', 'alamat', 'tgl_lahir', 'telp', 'dokter_id'];
+
+//menghubungkan pasien ke model dokter
+public function dokter(){
+    //karena status model saat ini adalah yang dititipkan id,
+    //maka dapat menggunakan belongsTo atau belongsToMany
+    return $this->belongsTo(Dokter::class);
+}
+
 }
